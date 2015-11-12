@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+
+  <allow>
+
+    <!--
+    <filter class="org.getahead.dwrdemo.monitor.MonitoringAjaxFilter"/>
+    <filter class="org.directwebremoting.filter.ExtraLatencyAjaxFilter">
+      <param name="delay" value="200"/>
+    </filter>
+    -->
+
+    <!-- intro - for the test on index.html -->
+    <create creator="new" javascript="Intro">
+      <param name="class" value="org.getahead.dwrdemo.intro.Intro"/>
+    </create>
+
+	<!-- Spring中导入DWR方式 -->
+	<create creator="spring" javascript="Intro">
+	  <!-- value为注入spring工厂的id -->
+      <param name="beanName" value="myBiz"/>
+	  <!-- method启用该类中的方法 -->
+      <include method="getName"/>
+    </create>
+
+  </allow>
+</dwr>
